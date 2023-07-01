@@ -17,9 +17,6 @@ export async function generateStaticParams() {
 export default async function StaticDetailPage({ params: { postId } }: { params: { postId: string } }) {
   const post = await getDetail(postId);
 
-  // ページの生成された時間を取得
-  const time = new Date().toLocaleString();
-
   if (!post) {
     notFound();
   }
@@ -27,7 +24,6 @@ export default async function StaticDetailPage({ params: { postId } }: { params:
   return (
     <div>
       <h1>{post.title}</h1>
-      <h2>{time}</h2>
       <div>{parse(post.content)}</div>
     </div>
   );

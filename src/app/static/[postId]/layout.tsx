@@ -1,6 +1,6 @@
 import Link from "next/link";
-import "../globals.css";
-import Header from "../components/Header";
+import "../../globals.css";
+import Header from "../../components/Header";
 
 export const metadata = {
   title: "Create Next App",

@@ -10,7 +10,7 @@ const header = () => {
           </li>
           <li>
             <Link href="/test/">Test</Link>
-          </li>{" "}
+          </li>
           <li>
             <Link href="/static/">Static</Link>
           </li>
