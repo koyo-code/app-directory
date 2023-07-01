@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getList } from "../libs/microcms";
 
 export default async function Home() {
@@ -8,11 +9,17 @@ export default async function Home() {
   }
 
   return (
-    <ul>
+    <ul className="w-full grid grid-cols-3 gap-3">
       {contents.map((post) => {
         return (
-          <li key={post.id}>
-            <Link href={`/static/${post.id}`}>{post.title}</Link>
+          <li className="rounded overflow-hidden shadow-lg" key={post.id}>
+            <Link href={`/static/${post.id}`}>
+              <Image src="/park.jpg" alt="/park.jpg" width={500} height={500} className="w-full" />
+              <div className="px-6 py-4">
+                <h3 className="font-bold text-xl mb-2">{post.title}</h3>
+                <p className="text-gray-700 text-base">{post.content}</p>
+              </div>
+            </Link>
           </li>
         );
       })}

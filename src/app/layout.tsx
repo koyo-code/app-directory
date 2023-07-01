@@ -9,7 +9,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <Header />
-        {children}
+        <main className="w-[90%] max-w-7xl mx-auto">{children}</main>
       </body>
     </html>
   );

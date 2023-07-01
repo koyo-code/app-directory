@@ -1,11 +1,27 @@
 import Link from "next/link";
 
 export default function Header() {
+  const navs = ["static", "about"];
   return (
-    <ul>
-      <li>
-        <Link href="/">スタティック</Link>
-      </li>
-    </ul>
+    <header className="flex justify-between p-5">
+      <div>
+        <h1 className="text-3xl font-bold">
+          <Link href="/">LIBRARY</Link>
+        </h1>
+      </div>
+      <nav>
+        <ul className="flex justify-between align-middle gap-4">
+          {navs.map((nav) => {
+            return (
+              <li key={nav}>
+                <Link className="text-lg" href={`/${nav}/`}>
+                  {nav}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+    </header>
   );
 }
