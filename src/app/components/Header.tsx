@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const header = () => {
+export default function header() {
   return (
     <header>
       <nav className="p-2">
@@ -9,15 +9,10 @@ const header = () => {
             <Link href="/">LIBRARY</Link>
           </li>
           <li>
-            <Link href="/test/">Test</Link>
-          </li>
-          <li>
-            <Link href="/static/">Static</Link>
+            <a href="/static/">STATIC</a>
           </li>
         </ul>
       </nav>
     </header>
   );
-};
-
-export default header;
+}
