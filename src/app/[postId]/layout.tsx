@@ -1,7 +1,7 @@
 import "../globals.css";
 import Header from "../components/Header";
 
-export default async function StaticLayout({ children }: { children: React.ReactNode }) {
+export default function StaticDetailPageLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ja">
       <head>

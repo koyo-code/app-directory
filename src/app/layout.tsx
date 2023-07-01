@@ -5,7 +5,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ja">
       <head>
-        <title>aga</title>
+        <title>aaa</title>
       </head>
       <body>
         <Header />
