@@ -6,7 +6,7 @@ export default function header() {
       <nav className="p-2">
         <ul className="flex items-center space-x-2">
           <li>
-            <Link href="/">LIBRARY</Link>
+            <a href="/">STATIC</a>
           </li>
           <li>
             <a href="/static/">STATIC</a>
