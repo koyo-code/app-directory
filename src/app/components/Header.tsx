@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ThemeButton from "../components/ThemeButton";
 
 export default function Header() {
   const navs = ["static", "about"];
@@ -9,7 +10,9 @@ export default function Header() {
           <Link href="/">LIBRARY</Link>
         </h1>
       </div>
-      <nav>
+      <ThemeButton />
+
+      {/* <nav>
         <ul className="flex justify-between align-middle gap-4">
           {navs.map((nav) => {
             return (
@@ -21,7 +24,7 @@ export default function Header() {
             );
           })}
         </ul>
-      </nav>
+      </nav> */}
     </header>
   );
 }

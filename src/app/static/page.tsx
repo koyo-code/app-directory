@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getList } from "../../libs/microcms";
+import { getList } from "../../microcms/microcms";
 
 export default async function Home() {
   const { contents } = await getList();
