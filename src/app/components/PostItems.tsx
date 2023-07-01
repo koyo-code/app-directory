@@ -10,15 +10,16 @@ export default async function PostItems() {
   }
 
   return (
-    <ul className="w-full grid md:grid-cols-3 grid-cols-2 gap-3">
+    <ul className="w-full grid md:grid-cols-3 grid-cols-2 gap-3 md:gap-5">
       {contents.map((post) => {
         return (
-          <li className="rounded overflow-hidden shadow-lg theme-item" key={post.id}>
+          <li className="rounded overflow-hidden theme-item" key={post.id}>
             <Link href={`/static/${post.id}`}>
-              <Image src="/park.jpg" alt="/park.jpg" width={500} height={500} className="w-full" />
-              <div className="px-6 py-4">
-                <h3 className="font-bold text-base mb-2">{post.title}</h3>
-                <p className="text-sm exp-line">{post.content}</p>
+              <Image src="/park.jpg" alt="/park.jpg" width={326} height={217} className="w-full" />
+              <div className="px-4 md:px-5 py-3 md:py-4  mb-2">
+                <p className="text-right text-xs">{new Date(post.updatedAt).toLocaleDateString()}</p>
+                <h3 className="font-bold text-sm md:text-base mb-2">{post.title}</h3>
+                <p className="text-xs md:text-sm exp-line">{post.content}</p>
               </div>
             </Link>
           </li>
