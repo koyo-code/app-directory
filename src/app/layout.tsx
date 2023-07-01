@@ -1,4 +1,6 @@
 import Link from "next/link";
+import "./globals.css";
+import Header from "./components/Header";
 
 export const metadata = {
   title: "Create Next App",
@@ -11,12 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="ja">
       <head />
       <body>
-        <header>
-          <h1>
-            <Link href="/">LIBRARY</Link>
-          </h1>
-          <Link href="/articles/new">記事を書く</Link>
-        </header>
+        <Header />
         {children}
       </body>
     </html>
