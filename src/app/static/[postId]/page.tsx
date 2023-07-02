@@ -1,17 +1,6 @@
 import { notFound } from "next/navigation";
 import { getDetail, getList } from "../../../microcms/microcms";
 import { PageWrapper } from "../../components/Page-Wrapper";
-import { motion } from "framer-motion";
-
-const variants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.3,
-    },
-  },
-};
 
 export async function generateStaticParams() {
   const { contents } = await getList();

@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
 import type { Blog } from "../../microcms/microcms";
 import React, { useState } from "react";
 import { PageWrapper } from ".//Page-Wrapper";
@@ -65,21 +64,14 @@ export default function Items(contents: Blog) {
         <motion.ul variants={variants} initial="hidden" animate="show" className="w-full grid md:grid-cols-3 grid-cols-2 gap-3 md:gap-5">
           {memberList.map((member, index) => {
             return (
-              <motion.li variants={images} className="rounded overflow-hidden theme-item" key={index}>
-                <Link href={`/static/${member.id}`}>
-                  <Image src="/park.jpg" alt="/park.jpg" width={326} height={217} className="w-full" />
-                  <div className="px-4 md:px-5 py-3 md:py-4">
-                    <p className="text-right text-xs">{new Date(member.updatedAt).toLocaleDateString()}</p>
-                    <h3 className="font-bold text-sm md:text-base mb-2">{member.title}</h3>
-                    <p className="text-xs md:text-sm exp-line mb-4">{member.content}</p>
-                    <div className="flex justify-end">
-                      {member.genre.map((gen) => {
-                        return (
-                          <span key={gen} className="label text-xs md:text-sm  inline-block bg-transparent py-1 px-2 ml-2 rounded">
-                            {gen}
-                          </span>
-                        );
-                      })}
+              <motion.li variants={images} className="overflow-hidden theme-item rounded-xl" key={index}>
+                <Link className="h-full block" href={`/static/${member.id}`}>
+                  <div className="">
+                    <h3 className="label font-bold flex justify-center items-center text-4xl md:text-5xl w-full h-32 md:h-44 bg-transparent">{member.genre[0]}</h3>
+                    <div className="p-3 md:p-4">
+                      <p className="text-right text-xs">{new Date(member.updatedAt).toLocaleDateString()}</p>
+                      <h3 className="font-bold text-sm md:text-lg mb-2">{member.title}</h3>
+                      <p className="text-xs md:text-sm exp-line">{member.content}</p>
                     </div>
                   </div>
                 </Link>
