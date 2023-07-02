@@ -24,7 +24,7 @@ export default async function StaticDetailPage({ params: { postId } }: { params:
     <PageWrapper>
       <h2 className="font-bold text-3xl md:text-4xl mb-3 md:mb-5">{post.title}</h2>
       <p className="mb-5 text-sm md:text-base">{post.content}</p>
-      <iframe className="block w-full h-auto aspect-[3/4] md:aspect-video mb-10 md:mb-20" src={post.codepen} loading="lazy" allowtransparency="true" allowfullscreen="true"></iframe>
+      <iframe className="block w-full h-auto aspect-[3/4] md:aspect-video mb-10 md:mb-20" src={post.codepen} loading="lazy"></iframe>
     </PageWrapper>
   );
 }
