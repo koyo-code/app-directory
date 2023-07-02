@@ -7,5 +7,8 @@ export default async function Home() {
   if (!contents || contents.length === 0) {
     return <h1>No contents</h1>;
   }
-  return <Items {...contents} />;
+  return (
+    /* @ts-expect-error Server Component */
+    <Items {...contents} />
+  );
 }
