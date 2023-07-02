@@ -13,7 +13,7 @@
   --back-ground: #0f0e17;
   --fore-ground: #fffffe;
   --item-border: #ff8906;
-  --sub-ground: #242629;
+  --sub-ground: #242635;
 }
 
 body {
@@ -58,6 +58,10 @@ body {
 
 .JS {
   background: #f0db4f;
+  color: #0d0d0d;
+}
+.PHP {
+  background: #8993be;
   color: #0d0d0d;
 }
 

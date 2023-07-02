@@ -36,22 +36,11 @@ const images = {
   },
 };
 
-const persons = [
-  { name: "Terence", sport: "baseball" },
-  { name: "Lukas", sport: "soccer" },
-  { name: "Bernhard", sport: "tennis" },
-  { name: "Oliver", sport: "basketball" },
-  { name: "Sherrington", sport: "soccer" },
-  { name: "Nahum", sport: "basketball" },
-  { name: "Luis", sport: "soccer" },
-  { name: "Ricard", sport: "tennis" },
-];
-
 type BlogArray = Array<Blog>;
 
 export default function Items(contents: Blog) {
   const objArrayContents: BlogArray = Object.values(contents);
-  const tags: string[] = ["HTML", "CSS", "JS", "OTHER"];
+  const tags: string[] = ["HTML", "CSS", "JS", "PHP", "OTHER"];
   const [name, setName] = useState("");
   const [sports, setSports] = useState(tags);
 
@@ -66,30 +55,7 @@ export default function Items(contents: Blog) {
 
   const reg = new RegExp(name, "i");
   let datas = objArrayContents.filter((data) => data.title.match(reg));
-  datas = datas.filter((data) => sports.includes(data.genre[0])); // <- 追加
-
-  // const [inputValue, setInputValue] = useState("");
-  // const [memberList, setMemberList] = useState<BlogArray>(objArrayContents);
-
-  // const search = (value: string) => {
-  //   if (value !== "") {
-  //     const filteredList = objArrayContents.filter((member: Blog) =>
-  //       Object.values(member).some((item: string | Array<string>) => {
-  //         if (typeof item === "string") {
-  //           return item.toUpperCase().indexOf(value.trim().toUpperCase()) !== -1;
-  //         }
-  //         return false;
-  //       })
-  //     );
-  //     setMemberList(filteredList);
-  //     return;
-  //   }
-  //   setMemberList(objArrayContents);
-  // };
-  // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   setInputValue(e.target.value);
-  //   search(e.target.value);
-  // };
+  datas = datas.filter((data) => sports.includes(data.genre[0]));
 
   return (
     <>
