@@ -22,17 +22,20 @@ body {
   background: var(--back-ground);
   color: var(--fore-ground);
   letter-spacing: 0.04em;
+  transition: all 0.3s;
 }
 
 .theme-item {
   background: var(--item-main);
   color: var(--item-sub);
   border: var(--item-border) solid 1px;
+  transition: all 0.3s;
 }
 
 .label {
   background: var(--item-border);
   color: var(--back-ground);
+  transition: all 0.3s;
 }
 
 .exp-line {

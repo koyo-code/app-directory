@@ -1,37 +1,65 @@
-import { getList } from "../../microcms/microcms";
+"use client";
 import Link from "next/link";
 import Image from "next/image";
+import type { Blog } from "../../microcms/microcms";
+import React, { useState } from "react";
 
-export default async function Items() {
-  const { contents } = await getList();
-  if (!contents || contents.length === 0) {
-    return <h1>No contents</h1>;
-  }
+type BlogArray = Array<Blog>;
+
+export default function Items(contents: Blog) {
+  const objArrayContents: BlogArray = Object.values(contents);
+
+  const [inputValue, setInputValue] = useState("");
+  const [memberList, setMemberList] = useState<BlogArray>(objArrayContents);
+
+  const search = (value: string) => {
+    if (value !== "") {
+      const filteredList = objArrayContents.filter((member: Blog) =>
+        Object.values(member).some((item: string | Array<string>) => {
+          if (typeof item === "string") {
+            return item.toUpperCase().indexOf(value.trim().toUpperCase()) !== -1;
+          }
+          return false;
+        })
+      );
+      setMemberList(filteredList);
+      return;
+    }
+    setMemberList(objArrayContents);
+  };
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+    search(e.target.value);
+  };
+
   return (
-    <ul className="w-full grid md:grid-cols-3 grid-cols-2 gap-3 md:gap-5">
-      {contents.map((post) => {
-        return (
-          <li className="rounded overflow-hidden theme-item" key={post.id}>
-            <Link href={`/static/${post.id}`}>
-              <Image src="/park.jpg" alt="/park.jpg" width={326} height={217} className="w-full" />
-              <div className="px-4 md:px-5 py-3 md:py-4 mb-2">
-                <p className="text-right text-xs">{new Date(post.updatedAt).toLocaleDateString()}</p>
-                <h3 className="font-bold text-sm md:text-base mb-2">{post.title}</h3>
-                <p className="text-xs md:text-sm exp-line mb-4">{post.content}</p>
-                <div className="flex justify-end">
-                  {post.genre.map((gen) => {
-                    return (
-                      <span key={gen} className="label inline-block bg-transparent font-semibold py-1 px-2 ml-2 rounded">
-                        {gen}
-                      </span>
-                    );
-                  })}
+    <>
+      <input className="ml-auto block rounded mb-10 py-1 md:py-2 px-2 md:px-3 text-base font-medium theme-item" placeholder="Search" type="text" value={inputValue} onChange={handleChange} />
+      <ul className="w-full grid md:grid-cols-3 grid-cols-2 gap-3 md:gap-5">
+        {memberList.map((member, index) => {
+          return (
+            <li className="rounded overflow-hidden theme-item" key={index}>
+              <Link href={`/static/${member.id}`}>
+                <Image src="/park.jpg" alt="/park.jpg" width={326} height={217} className="w-full" />
+                <div className="px-4 md:px-5 py-3 md:py-4 mb-2">
+                  <p className="text-right text-xs">{new Date(member.updatedAt).toLocaleDateString()}</p>
+                  <h3 className="font-bold text-sm md:text-base mb-2">{member.title}</h3>
+                  <p className="text-xs md:text-sm exp-line mb-4">{member.content}</p>
+                  <div className="flex justify-end">
+                    {member.genre.map((gen) => {
+                      return (
+                        <span key={gen} className="label text-xs md:text-sm  inline-block bg-transparent py-1 px-2 ml-2 rounded">
+                          {gen}
+                        </span>
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
-            </Link>
-          </li>
-        );
-      })}
-    </ul>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </>
   );
 }
