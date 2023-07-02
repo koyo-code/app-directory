@@ -11,7 +11,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body className="">
         <Providers>
           <Header />
-          <main className="w-[90%] max-w-screen-lg mx-auto mt-10">{children}</main>
+          <main className="w-[90%] max-w-screen-lg mx-auto mt-5 md:mt-10">{children}</main>
         </Providers>
       </body>
     </html>

@@ -29,7 +29,6 @@ body {
   background: var(--item-main);
   color: var(--item-sub);
   border: var(--item-border) solid 1px;
-  transition: all 0.3s;
 }
 
 .label {
