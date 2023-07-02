@@ -51,9 +51,11 @@ body {
 
 .HTML {
   background: #e34c26;
+  color: #fff;
 }
 .CSS {
   background: #264de4;
+  color: #fff;
 }
 
 .JS {
@@ -67,4 +69,5 @@ body {
 
 .OTHER {
   background: #3cb43e;
+  color: #fff;
 }

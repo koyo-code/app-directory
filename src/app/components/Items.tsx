@@ -9,6 +9,8 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
 
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
@@ -68,9 +70,9 @@ export default function Items(contents: Blog) {
               <input className=" peer sr-only" type="checkbox" id={tag} value={tag} onChange={onChangeSport} defaultChecked />
               <span
                 className="block mt-1 mx-auto w-[4em] cursor-pointer bg-gray-500 rounded-full
-      p-[2px] after:block after:h-[2em] after:w-[2em] after:rounded-full
-      after:bg-white after:transition peer-checked:bg-blue-500
-      peer-checked:after:translate-x-[calc(100%-4px)]"
+                p-[2px] after:block after:h-[2em] after:w-[2em] after:rounded-full
+                after:bg-white after:transition peer-checked:bg-blue-500
+                peer-checked:after:translate-x-[calc(100%-4px)]"
               ></span>
             </label>
           ))}
@@ -81,13 +83,13 @@ export default function Items(contents: Blog) {
         <motion.ul variants={variants} initial="hidden" animate="show" className="w-full grid md:grid-cols-3 grid-cols-2 gap-3 md:gap-5">
           {datas.map((member, index) => {
             return (
-              <motion.li variants={images} className="overflow-hidden" key={index}>
-                <Link className="item h-full block" href={`/static/${member.id}`}>
+              <motion.li variants={images} className="overflow-hidden shadow-color shadow-md hover:shadow-none transition-shadow" key={index}>
+                <Link className=" text-box h-full block" href={`/static/${member.id}`}>
                   <div className="relative">
-                    <span className={`inline-block py-1 px-3 text-sm md:text-base absolute top-0 right-0 text-white ${member.genre[0]}`}>{member.genre[0]}</span>
+                    <span className={`inline-block py-1 px-3 text-sm md:text-base absolute top-0 right-0 ${member.genre[0]}`}>{member.genre[0]}</span>
                     <h3 className="font-bold text-lg md:text-xl flex justify-center items-center w-full h-auto aspect-[16/9] theme-item">{member.title}</h3>
                   </div>
-                  <div className="p-3 md:p-4 text-box">
+                  <div className="p-3 md:p-4">
                     <p className="text-right text-xs mb-2">{dayjs.utc(member.updatedAt).tz("Asia/Tokyo").format("YYYY-MM-DD")}</p>
                     <p className="text-xs md:text-sm exp-line">{member.content}</p>
                   </div>
