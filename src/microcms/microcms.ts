@@ -6,6 +6,7 @@ export type Blog = {
   id: string;
   title: string;
   content: string;
+  genre: string[];
   eyecatch?: MicroCMSImage;
 } & MicroCMSDate;
 

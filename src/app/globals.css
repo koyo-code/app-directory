@@ -30,6 +30,11 @@ body {
   border: var(--item-border) solid 1px;
 }
 
+.label {
+  background: var(--item-border);
+  color: var(--back-ground);
+}
+
 .exp-line {
   overflow: hidden;
   display: -webkit-box;
