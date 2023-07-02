@@ -5,17 +5,15 @@
 :root {
   --back-ground: #eff0f3;
   --fore-ground: #0d0d0d;
-  --item-main: #fffffe;
-  --item-sub: #0d0d0d;
-  --item-border: #f9b248;
+  --item-border: #ff8e3c;
+  --sub-ground: #fffffe;
 }
 
 [data-theme="dark"] {
-  --back-ground: #242629;
+  --back-ground: #0f0e17;
   --fore-ground: #fffffe;
-  --item-main: #323436;
-  --item-sub: #fffffe;
-  --item-border: #40bf86;
+  --item-border: #ff8906;
+  --sub-ground: #242629;
 }
 
 body {
@@ -25,16 +23,23 @@ body {
   transition: all 0.3s;
 }
 
-.theme-item {
-  background: var(--item-main);
-  color: var(--item-sub);
-  border: var(--item-border) solid 1px;
-}
-
 .label {
   background: var(--item-border);
   color: var(--back-ground);
   transition: all 0.3s;
+}
+
+.theme-item {
+  background: var(--item-border);
+  color: var(--sub-ground);
+}
+.text-box {
+  background: var(--sub-ground);
+  color: var(--fore-ground);
+}
+
+::placeholder {
+  color: var(--fore-ground);
 }
 
 .exp-line {
@@ -42,4 +47,20 @@ body {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
+}
+
+.HTML {
+  background: #e34c26;
+}
+.CSS {
+  background: #264de4;
+}
+
+.JS {
+  background: #f0db4f;
+  color: #0d0d0d;
+}
+
+.OTHER {
+  background: #3cb43e;
 }
