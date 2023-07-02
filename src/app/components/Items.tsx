@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import type { Blog } from "../../microcms/microcms";
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { PageWrapper } from ".//Page-Wrapper";
 import { motion } from "framer-motion";
 
@@ -36,42 +36,84 @@ const images = {
   },
 };
 
+const persons = [
+  { name: "Terence", sport: "baseball" },
+  { name: "Lukas", sport: "soccer" },
+  { name: "Bernhard", sport: "tennis" },
+  { name: "Oliver", sport: "basketball" },
+  { name: "Sherrington", sport: "soccer" },
+  { name: "Nahum", sport: "basketball" },
+  { name: "Luis", sport: "soccer" },
+  { name: "Ricard", sport: "tennis" },
+];
+
 type BlogArray = Array<Blog>;
 
 export default function Items(contents: Blog) {
   const objArrayContents: BlogArray = Object.values(contents);
+  const tags: string[] = ["HTML", "CSS", "JS", "OTHER"];
+  const [name, setName] = useState("");
+  const [sports, setSports] = useState(tags);
 
-  console.log(objArrayContents);
-
-  const [inputValue, setInputValue] = useState("");
-  const [memberList, setMemberList] = useState<BlogArray>(objArrayContents);
-
-  const search = (value: string) => {
-    if (value !== "") {
-      const filteredList = objArrayContents.filter((member: Blog) =>
-        Object.values(member).some((item: string | Array<string>) => {
-          if (typeof item === "string") {
-            return item.toUpperCase().indexOf(value.trim().toUpperCase()) !== -1;
-          }
-          return false;
-        })
-      );
-      setMemberList(filteredList);
-      return;
-    }
-    setMemberList(objArrayContents);
+  const onChangeName = (event: ChangeEvent) => {
+    const eventTarget = event.target as HTMLInputElement;
+    setName(eventTarget.value);
   };
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-    search(e.target.value);
+  const onChangeSport = (event: ChangeEvent) => {
+    const eventTarget = event.target as HTMLInputElement;
+    eventTarget.checked ? setSports([...sports, eventTarget.value]) : setSports(sports.filter((sport) => sport.match(eventTarget.value) === null));
   };
+
+  const reg = new RegExp(name, "i");
+  let datas = objArrayContents.filter((data) => data.title.match(reg));
+  datas = datas.filter((data) => sports.includes(data.genre[0])); // <- 追加
+
+  // const [inputValue, setInputValue] = useState("");
+  // const [memberList, setMemberList] = useState<BlogArray>(objArrayContents);
+
+  // const search = (value: string) => {
+  //   if (value !== "") {
+  //     const filteredList = objArrayContents.filter((member: Blog) =>
+  //       Object.values(member).some((item: string | Array<string>) => {
+  //         if (typeof item === "string") {
+  //           return item.toUpperCase().indexOf(value.trim().toUpperCase()) !== -1;
+  //         }
+  //         return false;
+  //       })
+  //     );
+  //     setMemberList(filteredList);
+  //     return;
+  //   }
+  //   setMemberList(objArrayContents);
+  // };
+  // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setInputValue(e.target.value);
+  //   search(e.target.value);
+  // };
 
   return (
     <>
-      <input className="ml-auto block w-48 md:w-60 rounded mb-10 md:mb-20 py-1 md:py-2 px-2 md:px-3 text-base font-medium text-box" placeholder="Search" type="text" value={inputValue} onChange={handleChange} />
+      <div className=" gap-7 flex flex-col-reverse  md:flex-row-reverse items-center justify-between mb-10 md:mb-20">
+        <input type="text" className="mx-auto md:ml-auto md:mr-0 block w-60 rounded py-2 px-2 md:px-3 text-base font-medium text-box" placeholder="Search" onChange={onChangeName} />
+        <div className="flex gap-3 ">
+          {tags.map((tag) => (
+            <label className="text-xs text-center" key={tag} htmlFor={tag}>
+              {tag}
+              <input className=" peer sr-only" type="checkbox" id={tag} value={tag} onChange={onChangeSport} defaultChecked />
+              <span
+                className="block mt-1 mx-auto w-[4em] cursor-pointer bg-gray-500 rounded-full
+      p-[2px] after:block after:h-[2em] after:w-[2em] after:rounded-full
+      after:bg-white after:transition peer-checked:bg-blue-500
+      peer-checked:after:translate-x-[calc(100%-4px)]"
+              ></span>
+            </label>
+          ))}
+        </div>
+      </div>
+
       <PageWrapper>
         <motion.ul variants={variants} initial="hidden" animate="show" className="w-full grid md:grid-cols-3 grid-cols-2 gap-3 md:gap-5">
-          {memberList.map((member, index) => {
+          {datas.map((member, index) => {
             return (
               <motion.li variants={images} className="overflow-hidden" key={index}>
                 <Link className="item h-full block" href={`/static/${member.id}`}>

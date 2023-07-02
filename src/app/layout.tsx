@@ -6,7 +6,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang="ja">
       <head>
-        <title>aaa</title>
+        <title>LIBRARY</title>
       </head>
       <body className="">
         <Providers>
