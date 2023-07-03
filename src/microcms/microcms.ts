@@ -5,9 +5,10 @@ import type { MicroCMSQueries, MicroCMSImage, MicroCMSDate } from "microcms-js-s
 export type Blog = {
   id: string;
   title: string;
-  content: string;
   genre: string[];
   codepen: string;
+  functions: [{ text: string }];
+  options: [{ title: string; types: [{ text: string }]; description: string }];
   eyecatch?: MicroCMSImage;
 } & MicroCMSDate;
 

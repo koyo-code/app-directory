@@ -86,12 +86,9 @@ export default function Items(contents: Blog) {
               <motion.li variants={images} className="overflow-hidden shadow-color shadow-md hover:shadow-none transition-shadow" key={index}>
                 <Link className=" text-box h-full block" href={`/static/${member.id}`}>
                   <div className="relative">
-                    <span className={`inline-block py-1 px-3 text-sm md:text-base absolute top-0 right-0 ${member.genre[0]}`}>{member.genre[0]}</span>
-                    <h3 className="font-bold text-lg md:text-xl flex justify-center items-center w-full h-auto aspect-[16/9] theme-item">{member.title}</h3>
-                  </div>
-                  <div className="p-3 md:p-4">
-                    <p className="text-right text-xs mb-2">{dayjs.utc(member.updatedAt).tz("Asia/Tokyo").format("YYYY-MM-DD")}</p>
-                    <p className="text-xs md:text-sm exp-line">{member.content}</p>
+                    <span className={`inline-block py-1 px-4 text-sm md:text-base absolute top-0 left-0 ${member.genre[0]}`}>{member.genre[0]}</span>
+                    <p className="text-right py-1 px-2 text-[--back-ground] text-xs md:text-sm absolute top-0 right-0">{dayjs.utc(member.updatedAt).tz("Asia/Tokyo").format("YYYY-MM-DD")}</p>
+                    <h3 className="font-bold  text-lg md:text-xl flex justify-center items-center w-full h-auto aspect-[5/3] theme-item">{member.title}</h3>
                   </div>
                 </Link>
               </motion.li>

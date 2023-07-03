@@ -12,7 +12,7 @@ export default function ThemeButton() {
   if (!mounted) return null;
 
   return (
-    <select value={theme} onChange={(e) => setTheme(e.target.value)} className="block cursor-pointer py-2 md:py-2.5 px-0 w-20 text-base text-center text-gray-500 bg-transparent border-0 border-b border-gray-300 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+    <select value={theme} onChange={(e) => setTheme(e.target.value)} className="block theme-item cursor-pointer px-2 py-2 md:py-2.5 text-base text-center  bg-transparentappearance-none focus:outline-none focus:ring-0 peer">
       <option value="system" selected>
         System
       </option>
