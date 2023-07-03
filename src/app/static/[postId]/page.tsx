@@ -21,7 +21,6 @@ export default async function StaticDetailPage({ params: { postId } }: { params:
   if (!post) {
     notFound();
   }
-
   return (
     <>
       <PageWrapper>

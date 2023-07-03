@@ -27,11 +27,9 @@ const variants = {
 const images = {
   hidden: {
     opacity: 0,
-    y: 30,
   },
   show: {
     opacity: 1,
-    y: 0,
     transition: {
       duration: 0.3,
     },
@@ -67,7 +65,7 @@ export default function Items(contents: Blog) {
           {tags.map((tag) => (
             <label className="text-xs text-center" key={tag} htmlFor={tag}>
               {tag}
-              <input className=" peer sr-only" type="checkbox" id={tag} value={tag} onChange={onChangeSport} defaultChecked />
+              <input className="peer sr-only" type="checkbox" id={tag} value={tag} onChange={onChangeSport} defaultChecked />
               <span
                 className="block mt-1 mx-auto w-[4em] cursor-pointer bg-gray-500 rounded-full
                 p-[2px] after:block after:h-[2em] after:w-[2em] after:rounded-full
@@ -78,9 +76,8 @@ export default function Items(contents: Blog) {
           ))}
         </div>
       </div>
-
       <PageWrapper>
-        <motion.ul variants={variants} initial="hidden" animate="show" className="w-full grid md:grid-cols-3 grid-cols-2 gap-3 md:gap-5">
+        <motion.ul variants={variants} initial="hidden" animate="show" className="w-full  grid md:grid-cols-3 grid-cols-2 gap-3 md:gap-5">
           {datas.map((member, index) => {
             return (
               <motion.li variants={images} className="overflow-hidden shadow-color shadow-md hover:shadow-none transition-shadow" key={index}>
