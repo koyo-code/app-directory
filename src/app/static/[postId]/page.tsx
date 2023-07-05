@@ -80,7 +80,7 @@ export default async function StaticDetailPage({ params: { postId } }: { params:
                 })}
               </>
             </ul>
-            {post.reference[0] && (
+            {post.reference !== null && (
               <>
                 <h2 className="text-2xl md:text-3xl font-bold mb-3 md:mb-5 flex gap-2 items-center">
                   <AiFillFile className="text-[--item-border]" />
