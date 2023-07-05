@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Copy from "./Copy";
 import type { Blog } from "../../microcms/microcms";
 import React, { ChangeEvent, useState } from "react";
 import { PageWrapper } from ".//Page-Wrapper";
@@ -8,6 +9,8 @@ import { motion } from "framer-motion";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
+
+import { AiOutlineClockCircle } from "react-icons/ai";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -82,10 +85,13 @@ export default function Items(contents: Blog) {
                 <Link className=" text-box h-full block" href={`/static/${member.id}`}>
                   <div className="relative">
                     <span className={`inline-block py-2 px-4 text-sm md:text-base absolute top-0 right-0 ${member.genre[0]}`}>{member.genre[0]}</span>
-                    <h3 className="font-bold  text-lg md:text-xl flex justify-center items-center w-full h-auto aspect-[5/3] theme-item">{member.title}</h3>
+                    <h3 className="font-bold  text-lg md:text-2xl flex justify-center items-center w-full h-auto aspect-[5/3] theme-item">{member.title}</h3>
                   </div>
                   <div className="p-3">
-                    <p className="text-right mb-2 px-2 text-[--fore-ground] text-xs md:text-sm">{dayjs.utc(member.updatedAt).tz("Asia/Tokyo").format("YYYY-MM-DD")}</p>
+                    <p className="mb-2 px-2 text-[--fore-ground] text-xs md:text-sm flex justify-end items-center gap-1">
+                      <AiOutlineClockCircle />
+                      {dayjs.utc(member.updatedAt).tz("Asia/Tokyo").format("YYYY-MM-DD")}
+                    </p>
                     <p className="text-sm exp-line">{member.description}</p>
                   </div>
                 </Link>
