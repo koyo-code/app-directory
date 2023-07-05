@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { getDetail, getList } from "../../../microcms/microcms";
 import { PageWrapper } from "../../components/Page-Wrapper";
-import { AiOutlineRocket, AiOutlineSetting } from "react-icons/ai";
+import { AiOutlineRocket, AiOutlineSetting, AiFillFile } from "react-icons/ai";
 import Copy from "@/app/components/Copy";
 
 export async function generateStaticParams() {
@@ -55,7 +55,7 @@ export default async function StaticDetailPage({ params: { postId } }: { params:
               <AiOutlineSetting className="text-[--item-border]" />
               Options
             </h2>
-            <ul className="border-t border-[#ccc]">
+            <ul className="border-t border-[#ccc] mb-10 md:mb-20">
               <>
                 {post.options.map((option, index) => {
                   return (
@@ -80,6 +80,28 @@ export default async function StaticDetailPage({ params: { postId } }: { params:
                 })}
               </>
             </ul>
+            {post.reference[0] && (
+              <>
+                <h2 className="text-2xl md:text-3xl font-bold mb-3 md:mb-5 flex gap-2 items-center">
+                  <AiFillFile className="text-[--item-border]" />
+                  Reference
+                </h2>
+                <div className="flex flex-col gap-4">
+                  {post.reference.map((ref, i) => {
+                    return (
+                      <dl className="flex flex-col gap-2" key={i}>
+                        <dt className="font-bold text-base">{ref.key}</dt>
+                        <dd>
+                          <a className="underline break-all" href={ref.value}>
+                            {ref.value}
+                          </a>
+                        </dd>
+                      </dl>
+                    );
+                  })}
+                </div>
+              </>
+            )}
           </>
         )}
       </PageWrapper>

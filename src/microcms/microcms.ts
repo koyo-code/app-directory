@@ -10,6 +10,7 @@ export type Blog = {
   codepen: string;
   functions: [{ text: string }];
   options: [{ title: string; types: [{ text: string }]; description: string }];
+  reference: [{ key: string; value: string }];
   eyecatch?: MicroCMSImage;
 } & MicroCMSDate;
 
