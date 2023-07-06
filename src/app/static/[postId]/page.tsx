@@ -80,28 +80,28 @@ export default async function StaticDetailPage({ params: { postId } }: { params:
                 })}
               </>
             </ul>
-            {post.reference !== null && (
-              <>
-                <h2 className="text-2xl md:text-3xl font-bold mb-3 md:mb-5 flex gap-2 items-center">
-                  <AiFillFile className="text-[--item-border]" />
-                  Reference
-                </h2>
-                <div className="flex flex-col gap-4">
-                  {post.reference.map((ref, i) => {
-                    return (
-                      <dl className="flex flex-col gap-2" key={i}>
-                        <dt className="font-bold text-base">{ref.key}</dt>
-                        <dd>
-                          <a className="underline break-all" href={ref.value}>
-                            {ref.value}
-                          </a>
-                        </dd>
-                      </dl>
-                    );
-                  })}
-                </div>
-              </>
-            )}
+          </>
+        )}
+        {post.reference[0] && (
+          <>
+            <h2 className="text-2xl md:text-3xl font-bold mb-3 md:mb-5 flex gap-2 items-center">
+              <AiFillFile className="text-[--item-border]" />
+              Reference
+            </h2>
+            <div className="flex flex-col gap-4">
+              {post.reference.map((ref, i) => {
+                return (
+                  <dl className="flex flex-col gap-2" key={i}>
+                    <dt className="font-bold text-base">{ref.key}</dt>
+                    <dd>
+                      <a className="underline break-all" href={ref.value}>
+                        {ref.value}
+                      </a>
+                    </dd>
+                  </dl>
+                );
+              })}
+            </div>
           </>
         )}
       </PageWrapper>
