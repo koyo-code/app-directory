@@ -3,6 +3,7 @@ import { getDetail, getList } from "../../../microcms/microcms";
 import { PageWrapper } from "../../components/Page-Wrapper";
 import { AiOutlineRocket, AiOutlineSetting, AiFillFile } from "react-icons/ai";
 import Copy from "@/app/components/Copy";
+import Return from "@/app/components/Return";
 
 export async function generateStaticParams() {
   const { contents } = await getList();
@@ -24,6 +25,7 @@ export default async function StaticDetailPage({ params: { postId } }: { params:
   }
   return (
     <>
+      <Return />
       <PageWrapper>
         <h1 className="font-bold text-3xl md:text-4xl mb-3 md:mb-8">
           {post.title}
