@@ -32,7 +32,7 @@ export const client = createClient({
 export const getList = async (queries?: MicroCMSQueries) => {
   const listData = await client.getList<Blog>({
     endpoint: "items",
-    queries,
+    queries: { limit: 100 },
   });
 
   // データの取得が目視しやすいよう明示的に遅延効果を追加
