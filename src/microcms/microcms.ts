@@ -1,5 +1,9 @@
 import { createClient } from "microcms-js-sdk";
-import type { MicroCMSQueries, MicroCMSImage, MicroCMSDate } from "microcms-js-sdk";
+import type {
+  MicroCMSQueries,
+  MicroCMSImage,
+  MicroCMSDate,
+} from "microcms-js-sdk";
 
 //ブログの型定義
 export type Blog = {
@@ -41,7 +45,10 @@ export const getList = async (queries?: MicroCMSQueries) => {
 };
 
 // ブログの詳細を取得
-export const getDetail = async (contentId: string, queries?: MicroCMSQueries) => {
+export const getDetail = async (
+  contentId: string,
+  queries?: MicroCMSQueries
+) => {
   const detailData = await client.getListDetail<Blog>({
     endpoint: "items",
     contentId,
