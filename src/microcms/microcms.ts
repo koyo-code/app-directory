@@ -57,6 +57,5 @@ export const getDetail = async (
 
   // データの取得が目視しやすいよう明示的に遅延効果を追加
   await new Promise((resolve) => setTimeout(resolve, 0));
-
   return detailData;
 };

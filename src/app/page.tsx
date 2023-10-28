@@ -1,5 +1,5 @@
-import Items from "./components/Items";
-import { getList } from "../microcms/microcms";
+import Items from "@/app/common/components/Items";
+import { getList } from "@/microcms/microcms";
 
 export default async function Home() {
   const { contents } = await getList();
@@ -8,7 +8,9 @@ export default async function Home() {
     return <h1>No contents</h1>;
   }
   return (
-    /* @ts-expect-error Server Component */
-    <Items {...contents} />
+    <div className="w-[90%] mx-auto">
+      {/* @ts-expect-error Async Server Component */}
+      <Items {...contents} />
+    </div>
   );
 }

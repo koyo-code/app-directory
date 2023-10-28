@@ -1,18 +1,17 @@
-import "./globals.css";
-import Providers from "./components/Provider";
-import Header from "./components/Header";
+import "@/app/common/styles/globals.css";
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="ja">
       <head>
         <title>LIBRARY</title>
       </head>
-      <body className="">
-        <Providers>
-          <Header />
-          <main className="w-[90%] max-w-screen-lg mx-auto my-5 md:my-10">{children}</main>
-        </Providers>
+      <body>
+        <main>{children}</main>
       </body>
     </html>
   );
