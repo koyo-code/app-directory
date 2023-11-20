@@ -27,7 +27,7 @@ export default async function StaticDetailPage({
   return (
     <div className="w-[90%] mx-auto my-20 md:my-40">
       <PageTop />
-      <h1 className="text-center font-bold text-3xl md:text-5xl mb-10 md:mb-20">
+      <h1 className="text-center font-bold text-3xl md:text-5xl mb-10 md:mb-14">
         {post.title}
         <span
           className={`${post.genre[0]} text-xl inline-block px-3 ml-5 align-middle`}
@@ -36,11 +36,11 @@ export default async function StaticDetailPage({
         </span>
       </h1>
       <iframe
-        className="block w-full h-auto aspect-[4/3] md:aspect-[12/5] mb-10 md:mb-20"
+        className="block w-full h-auto aspect-[4/3] md:aspect-[5/2] mb-10 md:mb-20"
         src={post.codepen}
         loading="lazy"
       ></iframe>
-      <div>
+      <div className="max-w-screen-lg mx-auto">
         {post.functions[0] && (
           <>
             <h2 className="text-2xl md:text-3xl font-bold mb-3 md:mb-5 flex gap-2 items-center">
