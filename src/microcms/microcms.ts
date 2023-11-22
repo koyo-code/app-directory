@@ -13,7 +13,14 @@ export type Blog = {
   genre: string[];
   codepen: string;
   functions: [{ text: string }];
-  options: [{ title: string; types: [{ text: string }]; description: string }];
+  options: [
+    {
+      title: string;
+      default: string;
+      types: [{ text: string }];
+      description: string;
+    }
+  ];
   reference: [{ key: string; value: string }];
   eyecatch?: MicroCMSImage;
 } & MicroCMSDate;

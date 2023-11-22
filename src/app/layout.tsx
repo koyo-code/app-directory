@@ -11,7 +11,7 @@ export default async function RootLayout({
         <title>LIBRARY</title>
       </head>
       <body>
-        <div className="my-20 md:my-40">
+        <div className="my-20 md:mt-40 md:mb-20">
           <main>{children}</main>
         </div>
       </body>

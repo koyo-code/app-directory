@@ -1,4 +1,4 @@
-import Items from "@/app/common/components/Items";
+import TopPage from "@/app/components/TopPage";
 import { getList } from "@/microcms/microcms";
 
 export default async function Home() {
@@ -10,7 +10,7 @@ export default async function Home() {
   return (
     <div className="w-[90%] mx-auto">
       {/* @ts-expect-error Async Server Component */}
-      <Items {...contents} />
+      <TopPage {...contents} />
     </div>
   );
 }
