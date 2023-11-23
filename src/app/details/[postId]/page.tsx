@@ -34,7 +34,7 @@ export default async function StaticDetailPage({
         <div className="absolute top-2 right-2 ">
           <ThemeButton />
         </div>
-        <h1 className="text-center font-bold text-2xl md:text-3xl lg:text-4xl xl:text-5xl  text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <h1 className="w-full text-center font-bold text-2xl md:text-3xl lg:text-4xl xl:text-5xl  text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           {title}
           <span
             className={`${genre[0]} text-xs md:text-sm lg:text-base xl:text-xl inline-block px-2 lg:px-3 ml-3 lg:ml-5 align-middle`}
