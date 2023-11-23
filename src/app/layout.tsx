@@ -1,4 +1,5 @@
 import "@/app/common/styles/globals.css";
+import Providers from "@/app/common/components/Providers";
 
 export default async function RootLayout({
   children,
@@ -6,12 +7,14 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ja">
+    <html lang="ja" suppressHydrationWarning>
       <head>
         <title>LIBRARY</title>
       </head>
       <body>
-        <main>{children}</main>
+        <Providers>
+          <main>{children}</main>
+        </Providers>
       </body>
     </html>
   );

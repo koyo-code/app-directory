@@ -20,7 +20,7 @@
 
 @layer components {
   .detail-wrap {
-    @apply max-w-screen-lg mx-auto p-5 md:p-10 bg-white flex flex-col gap-10;
+    @apply max-w-screen-lg mx-auto p-5 md:p-10 bg-[--sub-ground] flex flex-col gap-10;
   }
   .detail-list {
     @apply border-t border-[#ccc];

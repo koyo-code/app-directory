@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getDetail, getList } from "@/microcms/microcms";
 import PageTop from "@/app/common/components/PageTop";
+import ThemeButton from "@/app/common/components/ThemeButton";
 import { AiOutlineRocket, AiOutlineSetting } from "react-icons/ai";
 
 export async function generateStaticParams() {
@@ -30,6 +31,9 @@ export default async function StaticDetailPage({
     <>
       <div className="bg-[--item-border] h-40 md:h-60 lg:h-72 xl:h-80 relative">
         <PageTop />
+        <div className="absolute top-2 right-2 ">
+          <ThemeButton />
+        </div>
         <h1 className="text-center font-bold text-2xl md:text-3xl lg:text-4xl xl:text-5xl  text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           {title}
           <span
@@ -39,7 +43,7 @@ export default async function StaticDetailPage({
           </span>
         </h1>
       </div>
-      <div className="p-5 md:p-10 bg-white">
+      <div className="p-5 md:p-10 bg-[--sub-ground]">
         <iframe
           className="block w-full xl:w-[80%] mx-auto h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px]"
           src={codepen}
@@ -84,7 +88,7 @@ export default async function StaticDetailPage({
                           <h3 className="text-base md:text-lg lg:text-xl xl:text-2xl font-bold">
                             {option.title}
                           </h3>
-                          <p className="text-xs md:text-sm lg:text-base xl:text-lg font-bold w-fit flex gap-2 items-center text-gray-500">
+                          <p className="text-xs md:text-sm lg:text-base xl:text-lg font-bold w-fit flex gap-2 items-center text-gray-400">
                             Default : {option.default}
                           </p>
                         </div>
