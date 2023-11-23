@@ -21,7 +21,7 @@ export default function ItemList({ datas }: { datas: Array<Blog> }) {
                 >
                   {data.genre[0]}
                 </span>
-                <h3 className="font-bold text-base md:text-lg lg:text-xl xl:text-2xl flex justify-center items-center w-full h-auto aspect-[5/3] theme-item">
+                <h3 className="font-bold text-sm md:text-lg lg:text-xl xl:text-2xl flex justify-center items-center w-full h-auto aspect-[5/3] theme-item">
                   {data.title}
                 </h3>
               </div>

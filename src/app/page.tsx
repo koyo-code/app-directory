@@ -1,4 +1,5 @@
 import TopPage from "@/app/components/TopPage";
+import ThemeButton from "@/app/common/components/ThemeButton";
 import { getList } from "@/microcms/microcms";
 
 export default async function Home() {
@@ -8,9 +9,16 @@ export default async function Home() {
     return <h1>No contents</h1>;
   }
   return (
-    <div className="w-[90%] mx-auto">
-      {/* @ts-expect-error Async Server Component */}
-      <TopPage {...contents} />
-    </div>
+    <>
+      <div className="relative">
+        <div className="absolute top-2 right-2">
+          <ThemeButton />
+        </div>
+      </div>
+      <div className="w-[90%] mx-auto">
+        {/* @ts-expect-error Async Server Component */}
+        <TopPage {...contents} />
+      </div>
+    </>
   );
 }
