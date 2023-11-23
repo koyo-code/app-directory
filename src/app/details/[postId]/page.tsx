@@ -27,94 +27,94 @@ export default async function StaticDetailPage({
     notFound();
   }
   return (
-    <div className="w-[90%] mx-auto my-20 md:my-40">
-      <PageTop />
-      <h1 className="text-center font-bold text-3xl md:text-5xl mb-10 md:mb-14">
-        {title}
-        <span
-          className={`${genre[0]} text-xl inline-block px-3 ml-5 align-middle`}
-        >
-          {genre[0]}
-        </span>
-      </h1>
-      <iframe
-        className="block w-full h-auto aspect-[4/3] md:aspect-[5/2] mb-10 md:mb-20"
-        src={codepen}
-        loading="lazy"
-      ></iframe>
-      <div className="max-w-screen-lg mx-auto">
-        {functions[0] && (
-          <>
-            <h2 className="text-2xl md:text-3xl font-bold mb-3 md:mb-5 flex gap-2 items-center">
-              <AiOutlineRocket className="text-[--item-border] rotate-45" />
-              機能
-            </h2>
-            <ul className="mb-10 md:mb-20 border-t border-[#ccc]">
-              <>
-                {functions.map((func, index) => {
-                  return (
-                    <li
-                      className="flex flex-col gap-3 py-5 border-b border-[#ccc]"
-                      key={index}
-                    >
-                      <p className="text-sm md:text-base px-4 relative before:content-[''] before:absolute before:left-0 before:top-[7px] before:rounded-full before:w-2 before:h-2 before:bg-[--fore-ground]">
-                        {func.text}
-                      </p>
-                    </li>
-                  );
-                })}
-              </>
-            </ul>
-          </>
-        )}
-        {options[0] && (
-          <>
-            <h2 className="text-2xl md:text-3xl font-bold mb-3 md:mb-5 flex gap-2 items-center">
-              <AiOutlineSetting className="text-[--item-border]  rotate-45" />
-              設定
-            </h2>
-            <ul className="border-t border-[#ccc] mb-10 md:mb-20">
-              <>
-                {options.map((option, index) => {
-                  return (
-                    <li
-                      className="flex flex-col gap-2 md:gap-3 py-5 border-b border-[#ccc]"
-                      key={index}
-                    >
-                      <div className="flex gap-4 items-end">
-                        <h3 className="text-xl md:text-2xl font-bold w-fit flex gap-2 items-center">
-                          {option.title}
-                        </h3>
-                        <p className="text-sm md:text-md font-bold w-fit flex gap-2 items-center text-gray-500">
-                          Default : {option.default}
-                        </p>
-                      </div>
-                      <div>
-                        <span className="text-sm md:text-base font-bold mr-2">
-                          Type :
-                        </span>
-                        {option.types.map((type) => {
-                          return (
-                            <>
-                              <span
-                                className="inline-block mr-2 mb-2 bg-[--item-border] text-[--fore-ground] px-2 py-1"
-                                key={type.text}
-                              >
-                                {type.text}
-                              </span>
-                            </>
-                          );
-                        })}
-                      </div>
-                      <p className="text-sm">{option.description}</p>
-                    </li>
-                  );
-                })}
-              </>
-            </ul>
-          </>
-        )}
+    <>
+      <div className="bg-[--item-border] h-40 md:h-60 lg:h-72 xl:h-80 relative">
+        <PageTop />
+        <h1 className="text-center font-bold text-2xl md:text-3xl lg:text-4xl xl:text-5xl  text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          {title}
+          <span
+            className={`${genre[0]} text-xs md:text-sm lg:text-base xl:text-xl inline-block px-2 lg:px-3 ml-3 lg:ml-5 align-middle`}
+          >
+            {genre[0]}
+          </span>
+        </h1>
       </div>
-    </div>
+      <div className="p-5 md:p-10 bg-white">
+        <iframe
+          className="block w-full xl:w-[80%] mx-auto h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px]"
+          src={codepen}
+          loading="lazy"
+        ></iframe>
+      </div>
+      <div className="w-[90%] mx-auto my-10 md:my-20 relative">
+        <div className="detail-wrap">
+          {functions[0] && (
+            <div>
+              <h2 className="detail-title">
+                <AiOutlineRocket className="text-[--item-border] rotate-45" />
+                説明
+              </h2>
+              <ul className="detail-list">
+                <>
+                  {functions.map((func, index) => {
+                    return (
+                      <li className="detail-item" key={index}>
+                        <p className="detail-text px-4 relative before:content-[''] before:absolute before:left-0 before:top-[7px] before:rounded-full before:w-2 before:h-2 before:bg-[--fore-ground]">
+                          {func.text}
+                        </p>
+                      </li>
+                    );
+                  })}
+                </>
+              </ul>
+            </div>
+          )}
+          {options[0] && (
+            <div>
+              <h2 className="detail-title">
+                <AiOutlineSetting className="text-[--item-border] rotate-45" />
+                設定
+              </h2>
+              <ul className="detail-list">
+                <div>
+                  {options.map((option, index) => {
+                    return (
+                      <li className="detail-item" key={index}>
+                        <div className="flex gap-4 items-end">
+                          <h3 className="text-base md:text-lg lg:text-xl xl:text-2xl font-bold">
+                            {option.title}
+                          </h3>
+                          <p className="text-xs md:text-sm lg:text-base xl:text-lg font-bold w-fit flex gap-2 items-center text-gray-500">
+                            Default : {option.default}
+                          </p>
+                        </div>
+                        <div>
+                          <span className="text-xs md:text-sm  xl:text-base font-bold mr-2">
+                            Type :
+                          </span>
+                          {option.types.map((type) => {
+                            return (
+                              <>
+                                <span
+                                  className="inline-block text-xs md:text-sm lg:text-base xl:text-lg mr-2 mb-2 bg-[--item-border] text-white px-2 py-1"
+                                  key={type.text}
+                                >
+                                  {type.text}
+                                </span>
+                              </>
+                            );
+                          })}
+                        </div>
+                        <p className="detail-text">{option.description}</p>
+                      </li>
+                    );
+                  })}
+                </div>
+              </ul>
+            </div>
+          )}
+        </div>
+      </div>
+    </>
   );
 }

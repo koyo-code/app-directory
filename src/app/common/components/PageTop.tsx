@@ -1,13 +1,13 @@
 import Link from "next/link";
-import { AiOutlineCaretLeft } from "react-icons/ai";
+import { AiOutlineSwapLeft } from "react-icons/ai";
 
 export default function PageTop() {
   return (
     <Link
       href={`/`}
-      className="fixed top-2 left-2 flex items-center justify-center h-auto w-16 aspect-square border-solid border-2 border-[#000]"
+      className="absolute top-2 left-2 flex items-center justify-center h-auto w-10 md:w-12 lg:w-14 xl:w-16 aspect-square bg-[--item-border]"
     >
-      <AiOutlineCaretLeft className="text-2xl text-[#000]" />
+      <AiOutlineSwapLeft className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-[#fff]" />
     </Link>
   );
 }

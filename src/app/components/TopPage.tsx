@@ -31,13 +31,13 @@ export default function TopPage(contents: Blog) {
   datas = datas.filter((data) => sports.includes(data.genre[0]));
 
   return (
-    <>
+    <div className="my-20 md:my-24 lg:my-32 xl:my-40">
       <Search
         onChangeSport={onChangeSport}
         onChangeName={onChangeName}
         tags={tags}
       />
       <ItemList datas={datas} />
-    </>
+    </div>
   );
 }

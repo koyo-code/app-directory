@@ -21,16 +21,16 @@ export default function ItemList({ datas }: { datas: Array<Blog> }) {
                 >
                   {data.genre[0]}
                 </span>
-                <h3 className="font-bold text-md md:text-xl xl:text-2xl flex justify-center items-center w-full h-auto aspect-[5/3] theme-item">
+                <h3 className="font-bold text-base md:text-lg lg:text-xl xl:text-2xl flex justify-center items-center w-full h-auto aspect-[5/3] theme-item">
                   {data.title}
                 </h3>
               </div>
-              <div className="p-3">
-                <p className="mb-2 px-2 text-[--fore-ground] text-xs md:text-sm flex justify-end items-center gap-1">
+              <div className="p-3 lg:p-4">
+                <p className="mb-2 px-2 text-[--fore-ground] text-xs md:text-sm flex justify-end items-center gap-1 text-[#999]">
                   <AiOutlineClockCircle />
                   <Time update={data.updatedAt} />
                 </p>
-                <p className="text-xs md:text-sm exp-line">
+                <p className="text-xs lg:text-sm exp-line">
                   {data.description}
                 </p>
               </div>
