@@ -26,7 +26,7 @@ export default function ItemList({ datas }: { datas: Array<Blog> }) {
                 </h3>
               </div>
               <div className="p-3 lg:p-4">
-                <p className="mb-2 px-2 text-[--fore-ground] text-xs lg:text-sm flex justify-end items-center gap-1 text-[#999]">
+                <p className="mb-2 text-[--fore-ground] text-xs lg:text-sm flex justify-end items-center gap-1 text-[#999]">
                   <AiOutlineClockCircle />
                   <Time update={data.updatedAt} />
                 </p>
