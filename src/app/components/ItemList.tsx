@@ -7,7 +7,7 @@ import type { Blog } from "@/microcms/microcms";
 export default function ItemList({ datas }: { datas: Array<Blog> }) {
   return (
     <>
-      <div className="grid md:grid-cols-3 xl:grid-cols-4 grid-cols-2 md:gap-6 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-5 xl:gap-6 ">
         {datas.map((data, index) => {
           return (
             <Link
@@ -17,7 +17,7 @@ export default function ItemList({ datas }: { datas: Array<Blog> }) {
             >
               <div className="relative">
                 <span
-                  className={`inline-block py-1 md:py-2 px-3 md:px-4 text-sm md:text-base absolute top-0 right-0 ${data.genre[0]}`}
+                  className={`inline-block py-1 lg:py-2 px-2 lg:px-4 text-xs lg:text-sm absolute top-0 right-0 ${data.genre[0]}`}
                 >
                   {data.genre[0]}
                 </span>
@@ -26,7 +26,7 @@ export default function ItemList({ datas }: { datas: Array<Blog> }) {
                 </h3>
               </div>
               <div className="p-3 lg:p-4">
-                <p className="mb-2 px-2 text-[--fore-ground] text-xs md:text-sm flex justify-end items-center gap-1 text-[#999]">
+                <p className="mb-2 px-2 text-[--fore-ground] text-xs lg:text-sm flex justify-end items-center gap-1 text-[#999]">
                   <AiOutlineClockCircle />
                   <Time update={data.updatedAt} />
                 </p>
