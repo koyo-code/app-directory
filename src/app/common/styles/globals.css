@@ -7,6 +7,7 @@
 :root {
   --transition-property: color, background;
   --transition-duration: 0.3s;
+  --transition-function: linear;
   --back-ground: #eff0f3;
   --fore-ground: #0d0d0d;
   --item-border: #ff8e3c;
@@ -22,7 +23,7 @@
 
 @layer components {
   .dark-transition {
-    @apply transition-[--transition-property] duration-[--transition-duration] ease-linear;
+    @apply transition-[--transition-property] duration-[--transition-duration] ease-[--transition-function];
   }
   .detail-wrap {
     @apply max-w-screen-lg mx-auto p-5 md:p-10 bg-[--sub-ground] flex flex-col gap-10;
@@ -45,10 +46,10 @@ body {
   background: var(--back-ground);
   color: var(--fore-ground);
   letter-spacing: 0.04em;
+  font-family: "Noto Sans JP", sans-serif;
   transition-property: var(--transition-property);
   transition-duration: var(--transition-duration);
-  transition-timing-function: linear;
-  font-family: "Noto Sans JP", sans-serif;
+  transition-timing-function: var(--transition-function);
 }
 
 .label {
@@ -56,7 +57,7 @@ body {
   color: var(--back-ground);
   transition-property: var(--transition-property);
   transition-duration: var(--transition-duration);
-  transition-timing-function: linear;
+  transition-timing-function: var(--transition-function);
 }
 
 .theme-item {
@@ -64,21 +65,21 @@ body {
   color: var(--sub-ground);
   transition-property: var(--transition-property);
   transition-duration: var(--transition-duration);
-  transition-timing-function: linear;
+  transition-timing-function: var(--transition-function);
 }
 .text-box {
   background: var(--sub-ground);
   color: var(--fore-ground);
   transition-property: var(--transition-property);
   transition-duration: var(--transition-duration);
-  transition-timing-function: linear;
+  transition-timing-function: var(--transition-function);
 }
 
 ::placeholder {
   color: var(--fore-ground);
   transition-property: var(--transition-property);
   transition-duration: var(--transition-duration);
-  transition-timing-function: linear;
+  transition-timing-function: var(--transition-function);
 }
 
 .exp-line {

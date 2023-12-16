@@ -9,7 +9,12 @@ export default async function RootLayout({
   return (
     <html lang="ja" suppressHydrationWarning>
       <head>
-        <title>LIBRARY</title>
+        <title>Source Code Management</title>
+        <meta
+          name="description"
+          content="ソースコード管理をする個人用アプリケーション"
+        />
+        <meta name="robots" content="noindex" />
       </head>
       <body>
         <Providers>
