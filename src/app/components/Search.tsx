@@ -1,12 +1,8 @@
 import { ChangeEvent } from "react";
 export default function Search({
-  tags,
   onChangeName,
-  onChangeSport,
 }: {
-  tags: string[];
   onChangeName: (event: ChangeEvent) => void;
-  onChangeSport: (event: ChangeEvent) => void;
 }) {
   return (
     <>
@@ -17,27 +13,6 @@ export default function Search({
           placeholder="Search"
           onChange={onChangeName}
         />
-        <div className="flex gap-3">
-          {tags.map((tag) => (
-            <label className="text-xs text-center" key={tag} htmlFor={tag}>
-              {tag}
-              <input
-                className="peer sr-only"
-                type="checkbox"
-                id={tag}
-                value={tag}
-                onChange={onChangeSport}
-                defaultChecked
-              />
-              <span
-                className="block mt-1 mx-auto w-[4em] cursor-pointer bg-gray-500 rounded-full
-                p-[2px] after:block after:h-[2em] after:w-[2em] after:rounded-full
-                after:bg-white after:transition peer-checked:bg-blue-500
-                peer-checked:after:translate-x-[calc(100%-4px)]"
-              ></span>
-            </label>
-          ))}
-        </div>
       </div>
     </>
   );

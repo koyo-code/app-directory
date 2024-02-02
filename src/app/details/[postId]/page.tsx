@@ -29,7 +29,7 @@ export default async function StaticDetailPage({
   }
   return (
     <>
-      <div className="bg-[--item-border] dark-transition h-40 md:h-60 lg:h-72 xl:h-80 relative">
+      <div className="bg-[--item-border]  h-40 md:h-60 lg:h-72 xl:h-80 relative">
         <PageTop />
         <div className="absolute top-2 right-2 ">
           <ThemeButton />
@@ -43,7 +43,7 @@ export default async function StaticDetailPage({
           </span>
         </h1>
       </div>
-      <div className="p-5 md:p-10 bg-[--sub-ground] dark-transition">
+      <div className="p-5 md:p-10 bg-[--sub-ground] ">
         <iframe
           className="block w-full xl:w-[80%] mx-auto h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px]"
           src={codepen}

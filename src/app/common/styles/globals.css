@@ -22,9 +22,6 @@
 }
 
 @layer components {
-  .dark-transition {
-    @apply transition-[--transition-property] duration-[--transition-duration] ease-[--transition-function];
-  }
   .detail-wrap {
     @apply max-w-screen-lg mx-auto p-5 md:p-10 bg-[--sub-ground] flex flex-col gap-10;
   }
